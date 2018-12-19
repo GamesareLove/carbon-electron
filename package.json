@@ -1,0 +1,14 @@
+{
+  "name": "carbon-electron",
+  "version": "1.0.0",
+  "description": "A simple ",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Shawn Bowler, Stefan Todorov",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^3.0.13"
+  }
+}
