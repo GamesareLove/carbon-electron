@@ -1,6 +1,8 @@
 (function() {
+	"use strict";
 
 	var bodyEl = document.body,
+		menuWraper = document.getElementById( 'menu' ),
 		content = document.querySelector( '.content-wrap' ),
 		openbtn = document.getElementById( 'open-button' ),
 		closebtn = document.getElementById( 'close-button' ),
@@ -28,8 +30,10 @@
 	function toggleMenu() {
 		if( isOpen ) {
 			classie.remove( bodyEl, 'show-menu' );
+			menuWraper.style.display = 'none';
 		}
 		else {
+			menuWraper.style.display = 'block';
 			classie.add( bodyEl, 'show-menu' );
 		}
 		isOpen = !isOpen;

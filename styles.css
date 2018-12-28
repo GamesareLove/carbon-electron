@@ -1,3 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+
+:root {
+    --link-color: #bdc3c7;
+    --link-hover-color: #d35400;
+    --menu-background-color: #2c3e50;
+    --content-background-color: #34495e;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,53 +14,74 @@
 
 html,
 body,
-.container {
+.container,
+.content-wrap {
     overflow: hidden;
     width: 100%;
     height: 100%;
+    font-family: 'Questrial', sans-serif;
 }
 
 .container {
-    background: rgb(5,32,51);
+    background: var(--menu-background-color);
 }
 
 .menu-wrap a {
-    color: #B8B7AD;
+    color: var(--link-color);
 }
 
 .menu-wrap a:hover,
 .menu-wrap a:focus {
-    color: #C94E50;
+    color: var(--link-hover-color);
+}
+
+.content-wrap {
+    /* overflow-y: scroll;
+    -webkit-overflow-scrolling: touch; */
+    -webkit-transition: -webkit-transform 0.3s;
+    transition: transform 0.3s;
+    background: var(--content-background-color);
+}
+
+.content {
+    position: relative;
+    padding: 5em 0 0 5em;
+    width: 100%;
+    height: 100%;
+}
+
+.content::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    content: '';
+    opacity: 0;
+    -webkit-transform: translate3d(100%,0,0);
+    transform: translate3d(100%,0,0);
+    -webkit-transition: opacity 0.3s, -webkit-transform 0s 0.3s;
+    transition: opacity 0.3s, transform 0s 0.3s;
 }
 
 .menu-button {
+    color: var(--link-color);
     position: fixed;
     z-index: 1000;
     margin:1em;
-    padding: 0;
     width: 2.5em;
     height: 2.5em;
     border: none;
-    text-indent: 2.5em;
     font-size: 1.5em;
-    color: transparent;
-    background: transparent;
     -webkit-transition: -webkit-transform 0.3s;
     transition: transform 0.3s;
 }
 
-.menu-button::before {
-    position: absolute;
-    top: 0.5em;
-    right: 0.5em;
-    bottom: 0.5em;
-    left: 0.5em;
-    background: linear-gradient(#373a47 20%, transparent 20%, transparent 40%, #373a47 40%, #343a47 60%, transparent 60%, transparent 80%, #373a47 80%);
-    content: '';
-}
-
 .menu-button:hover {
-    opacity: 0.6;
+    color: var(--link-hover-color);
+    cursor: pointer;
 }
 
 .menu-wrap {
@@ -64,6 +94,13 @@ body,
 
 .menu-top {
     line-height: 58px;
+}
+
+.menu-top .profile {
+    display: inline-block;
+    padding: 8px 10px;
+    line-height: 42px;
+    color: var(--link-color);
 }
 
 .menu-top .profile,
@@ -96,13 +133,14 @@ body,
     display: block;
     padding: 1.2em;
     border-bottom: 1px solid rgba(0,0,0,0.1);
+    text-decoration: none;
 }
 
 .menu-side a:first-child {
     border-top: 1px solid rgba(0,0,0,0.1);
 }
 
-.show-menu  .menu-wrap {
+.show-menu .menu-wrap {
     opacity: 1;
 }
 
