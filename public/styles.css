@@ -5,6 +5,7 @@
     --link-hover-color: #d35400;
     --menu-background-color: #2c3e50;
     --content-background-color: #34495e;
+    --active-color: #27ae60;
 }
 
 * {
@@ -30,8 +31,12 @@ body,
     color: var(--link-color);
 }
 
-.menu-wrap a:hover,
-.menu-wrap a:focus {
+.menu-wrap .active {
+    color: var(--active-color);
+}
+
+.menu-wrap a:hover:not(.active),
+.menu-wrap a:focus:not(.active) {
     color: var(--link-hover-color);
 }
 

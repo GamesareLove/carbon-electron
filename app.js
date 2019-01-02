@@ -5,9 +5,9 @@ const { app, BrowserWindow } = require('electron');
 let win;
 
 function createWindow(){
-    win = new BrowserWindow({ width: 1200, height: 900, frame: false});
+    win = new BrowserWindow({ width: 1200, height: 900, frame: false, webPreferences: {devTools: false}});
 
-    win.loadFile('index.html');
+    win.loadFile('public/index.html');
 
     win.on('closed', () => {
         win = null;
