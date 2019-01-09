@@ -1,16 +1,31 @@
 const $ = require('jquery');
+$.getJSON('../config.json', config => {
+		firebase.initializeApp(config);
+		ready();
+});	
 
-(function() {
+function ready() {
 	"use strict";
 
-	navigator.serviceWorker.register('../sw.js').then(function(registration) {
-		// Registration was successful
-		console.log('ServiceWorker registration successful with scope: ', registration.scope);
-	  }, function(err) {
-		// registration failed :(
-		console.log('ServiceWorker registration failed: ', err);
-	  });
-  
+	firebase.auth().onAuthStateChanged(user => {
+		if (user) {
+			document.getElementById('activeUser').innerHTML = '<img src="'+user.photoURL+'" alt=""><span>'+user.displayName+'</span><i class="fas fa-fw fa-caret-down"></i>';
+			console.log(user.displayName, user.photoURL);
+		} else {
+			window.location = 'login.html'
+		}
+	});
+
+	$('#logout').click(() => {
+		firebase.auth().signOut();
+	});
+
+	function toggleProfileOptions() {
+		$('#activeUser svg').toggleClass('fa-caret-down fa-caret-up');
+		$('#profileOptions').slideToggle();
+	}
+
+	$('#activeUser').click(toggleProfileOptions);
 
 	function toggleMenu() {
 		$('#menu').toggle();
@@ -18,9 +33,10 @@ const $ = require('jquery');
 	}
 
 	$('#open-button').click(toggleMenu);
-	$('.content-wrap').click((e) => {
+	$('.content-wrap').click(e => {
 		if( $('body').hasClass('show-menu') && e.target !== $('#open-button') ) {
 			toggleMenu();
+			toggleProfileOptions();
 		}
 	});
-})();
+}

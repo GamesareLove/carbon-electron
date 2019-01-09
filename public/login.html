@@ -20,9 +20,17 @@
                 <input id="lgn-pswd" type="password" placeholder="Password">
             </div>
             <div class="frgtpswd"><a class="link">Forgot your password?</a></div>
-            <input type="button" class="btn" value="Login" onclick="window.location='index.html'">
+            <input id="signin" type="button" class="btn" value="Login">
             <p class="redirect">Need an account? <a class="link" href="signup.html">Sign up</a></p>
         </div>
     </div>
+    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+    <script>
+        const $ = require('jquery');
+        $.getJSON('../config.json', config => {
+            firebase.initializeApp(config);
+        });
+    </script>
+    <script src="auth.js"></script>
 </body>
 </html>
