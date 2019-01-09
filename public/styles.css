@@ -114,6 +114,8 @@ body,
 }
 
 .menu-top .profile img {
+    width: 42px;
+    height: 42px;
     float: left;
     margin-right: 1em;
 }

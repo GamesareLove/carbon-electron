@@ -10,7 +10,7 @@ function ready() {
 	firebase.auth().onAuthStateChanged(user => {
 		if (user) {
 			document.getElementById('activeUser').innerHTML = '<img src="'+user.photoURL+'" alt=""><span>'+user.displayName+'</span><i class="fas fa-fw fa-caret-down"></i>';
-			console.log(user.displayName, user.photoURL);
+			console.log(user);
 		} else {
 			window.location = 'login.html'
 		}
@@ -23,6 +23,7 @@ function ready() {
 	function toggleProfileOptions() {
 		$('#activeUser svg').toggleClass('fa-caret-down fa-caret-up');
 		$('#profileOptions').slideToggle();
+		$('body').toggleClass('show-profile');
 	}
 
 	$('#activeUser').click(toggleProfileOptions);
@@ -36,7 +37,9 @@ function ready() {
 	$('.content-wrap').click(e => {
 		if( $('body').hasClass('show-menu') && e.target !== $('#open-button') ) {
 			toggleMenu();
-			toggleProfileOptions();
+			if ($('body').hasClass('show-profile')) {
+				toggleProfileOptions();
+			}
 		}
 	});
 }
