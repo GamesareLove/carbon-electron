@@ -1,8 +1,18 @@
 "use strict";
+const $ = require('jquery');
+$.getJSON('../config.json', config => {
+		firebase.initializeApp(config);
+		authReady();
+});	
 
-(function(){
+function authReady(){    
+    if(window.location.search.includes('?m=pswdRstSnt')){
+        $('#'+window.location.search.substring(3)).toggle();
+    }
+
     $('#signup').click(su);
     $('#signin').click(lgn);
+    $('#sendreset').click(rst);
     $('.container').keypress(e => {
         if(e.keyCode == 13){
             if(document.getElementById('lgn-emil') !== null){
@@ -31,6 +41,11 @@
                     document.getElementById('su-pswd').focus();
                 } else if (cnpswd == '') {
                     document.getElementById('su-cnpswd').focus();
+                }
+            }
+            if(document.getElementById('emil-fr-rst') !== null){
+                if(document.getElementById('emil-fr-rst').value !== ''){
+                    rst();
                 }
             }
         }
@@ -88,4 +103,10 @@
             console.log('Passwords do not match');
         }
     }
-})();
+
+    function rst() {
+        firebase.auth().sendPasswordResetEmail(document.getElementById('emil-fr-rst').value).then(() => {
+            window.location = 'login.html?m=pswdRstSnt';
+        })
+    }
+}

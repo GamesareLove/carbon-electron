@@ -27,7 +27,7 @@ body {
     background-color: #34495e;
 }
 
-.textbox {
+.input-textbox {
     width: 100%;
     overflow: hidden;
     font-size: 20px;
@@ -36,13 +36,13 @@ body {
     border-bottom: 1px solid #bdc3c7;
 }
 
-.textbox svg {
+.input-textbox svg {
     width: 26px;
     float: left;
     text-align: center;
 }
 
-.textbox input {
+.input-textbox input {
     border: none;
     background: none;
     outline: none;
@@ -80,9 +80,40 @@ body {
     color: #d35400;
 }
 
-.frgtpswd {
+.tnytxt {
     position: relative;
     font-size: 14px;
     top: -5px;
     cursor: pointer;
+}
+
+.alert-container {
+    width: 400px;
+}
+
+.alert {
+    overflow: hidden;
+    width: 100%;
+    padding: 20px 40px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    background-color: #34495e;
+}
+
+.alert-success {
+    background-color: darkgreen;
+}
+
+.alert svg {
+    width: 26px;
+    float: left;
+    text-align: center;
+}
+
+.alert-textbox {
+    font-size: 15px;
+    color: white;
+    float: left;
+    width: 80%;
+    margin: 5px 10px 0;
 }

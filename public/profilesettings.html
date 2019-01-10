@@ -23,17 +23,28 @@
             </nav>
             <nav class="menu-side">
                 <div id="profileOptions" style="display: none;">
-                    <a href="profilesettings.html"><i class="fas fa-cog fa-fw fa-lg"></i>&nbsp;&nbsp;Profile Settings</a>
+                    <a class="active" href="#"><i class="fas fa-cog fa-fw fa-lg"></i>&nbsp;&nbsp;Profile Settings</a>
                     <a id="logout" href="#"><i class="fas fa-fw fa-sign-out-alt fa-lg"></i>&nbsp;&nbsp;Sign Out</a>
                 </div>
-                <a id="topper" class="active" href="#"><i class="fas fa-fw fa-home fa-lg"></i>&nbsp;&nbsp;Home</a>
+                <a href="index.html"><i class="fas fa-fw fa-home fa-lg"></i>&nbsp;&nbsp;Home</a>
                 <a href="#"><i class="fas fa-fw fa-users fa-lg"></i>&nbsp;&nbsp;Manage Members</a>
-                <a href="appsettings.html"><i class="fas fa-fw fa-cogs fa-lg"></i>&nbsp;&nbsp;Settings</a>
+                <a href="appsettings.html"><i class="fas fa-fw fa-cogs fa-lg"></i>&nbsp;&nbsp;App Settings</a>
             </nav>
         </div>
         <a class="menu-button" id="open-button"><i class="fas fa-fw fa-bars fa-2x"></i></a>
         <div class="content-wrap">
             <div class="content">
+                <div class="inner-content">
+                    <h3>Profile Settings</h3>
+                    <div class="input-textbox">
+                        <i class="fas fa-fw fa-envelope"></i>
+                        <input id="po-emil" type="email" placeholder="Email">
+                    </div>
+                    <div class="input-textbox">
+                        <i class="fas fa-fw fa-lock"></i>
+                        <input id="po-pswd" type="password" placeholder="Password">
+                    </div>
+                </div>
             </div>
         </div><!-- /content-wrap -->
     </div><!-- /container -->

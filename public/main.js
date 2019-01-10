@@ -1,12 +1,11 @@
+"use strict";
 const $ = require('jquery');
 $.getJSON('../config.json', config => {
 		firebase.initializeApp(config);
-		ready();
+		mainReady();
 });	
 
-function ready() {
-	"use strict";
-
+function mainReady() {
 	firebase.auth().onAuthStateChanged(user => {
 		if (user) {
 			document.getElementById('activeUser').innerHTML = '<img src="'+user.photoURL+'" alt=""><span>'+user.displayName+'</span><i class="fas fa-fw fa-caret-down"></i>';

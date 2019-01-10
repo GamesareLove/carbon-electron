@@ -10,27 +10,27 @@
 </head>
 <body>
     <div class="container">
+        <div class="alert-container">
+            <div class="alert alert-success" id="pswdRstSnt" style="display: none;">
+                <i class="fas fa-check-circle fa-fw fa-lg"></i>
+                <div class="alert-textbox">Password reset sent. Please check your email.</div>
+            </div>
+        </div>
         <div class="login-container">
-            <div class="textbox">
+            <div class="input-textbox">
                 <i class="fas fa-fw fa-envelope"></i>
                 <input id="lgn-emil" type="email" placeholder="Email">
             </div>
-            <div class="textbox">
+            <div class="input-textbox">
                 <i class="fas fa-fw fa-lock"></i>
                 <input id="lgn-pswd" type="password" placeholder="Password">
             </div>
-            <div class="frgtpswd"><a class="link">Forgot your password?</a></div>
+            <div class="tnytxt"><a href="pswdreset.html" class="link">Forgot your password?</a></div>
             <input id="signin" type="button" class="btn" value="Login">
             <p class="redirect">Need an account? <a class="link" href="signup.html">Sign up</a></p>
         </div>
     </div>
     <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
-    <script>
-        const $ = require('jquery');
-        $.getJSON('../config.json', config => {
-            firebase.initializeApp(config);
-        });
-    </script>
     <script src="auth.js"></script>
 </body>
 </html>

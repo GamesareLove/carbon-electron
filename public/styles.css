@@ -191,3 +191,10 @@ body,
     -webkit-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
 }
+
+.inner-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
