@@ -35,14 +35,35 @@
         <div class="content-wrap">
             <div class="content">
                 <div class="inner-content">
-                    <h3>Profile Settings</h3>
-                    <div class="input-textbox">
-                        <i class="fas fa-fw fa-envelope"></i>
-                        <input id="po-emil" type="email" placeholder="Email">
+                    <h3 style="color: white;">My Profile</h3>
+                    <div class="profile-settings">
+                        <img class="po-ppic" alt="">
+                        <div class="text-display" style="margin-bottom: 20px;">
+                            <h4>Display Name</h4>
+                            <span id="po-usnm"></span>
+                        </div>
+                        <div class="text-display">
+                            <h4>Email</h4>
+                            <span id="po-emil"></span>
+                        </div>
+                        <input id="poEdtTgle" type="button" class="btn editToggle" value="Edit Profile">
                     </div>
-                    <div class="input-textbox">
-                        <i class="fas fa-fw fa-lock"></i>
-                        <input id="po-pswd" type="password" placeholder="Password">
+                    <div class="profile-settings edit" style="display: none;">
+                        <img class="po-ppic" alt="">
+                        <div class="input-textbox" style="margin-bottom: 20px;">
+                            <h4>Display Name</h4>
+                            <input id="poi-usnm" type="text" placeholder="">
+                        </div>
+                        <div class="input-textbox" style="margin-bottom: 20px;">
+                            <h4>Email</h4>
+                            <input id="poi-emil" type="email" placeholder="">
+                        </div>
+                        <div class="input-textbox">
+                            <h4>Current Password</h4>
+                            <input id="poi-pswd" type="password" placeholder="">
+                        </div>
+                        <hr/>
+                        <input class="btn btn-danger" type="button" value="Delete Account" disabled><span style="float: right;"><input id="cnclPflEdt" class="btn btn-link" type="button" value="Cancel"><input class="btn" type="button" value="Save" disabled></span>
                     </div>
                 </div>
             </div>

@@ -3,13 +3,17 @@ const $ = require('jquery');
 $.getJSON('../config.json', config => {
 		firebase.initializeApp(config);
 		mainReady();
-});	
+});
 
 function mainReady() {
 	firebase.auth().onAuthStateChanged(user => {
 		if (user) {
 			document.getElementById('activeUser').innerHTML = '<img src="'+user.photoURL+'" alt=""><span>'+user.displayName+'</span><i class="fas fa-fw fa-caret-down"></i>';
 			console.log(user);
+			if(window.location.toString().includes('profilesettings.html')){
+				// console.log(window.location);
+				fillProfile(user);
+			}
 		} else {
 			window.location = 'login.html'
 		}
@@ -41,4 +45,46 @@ function mainReady() {
 			}
 		}
 	});
+
+	/*
+	 *   Profile Settings
+	 */
+
+	$('#updtPrflStngs').click(updateProfileSettings);
+	$('#poEdtTgle').click(toggleProfileSettingsEdit);
+	$('#cnclPflEdt').click(toggleProfileSettingsEdit);
+
+	function toggleProfileSettingsEdit() {
+		$('.profile-settings').toggle();
+	}
+
+	function fillProfile(u) {
+		// Text
+		$('.po-ppic').attr('src', u.photoURL);
+		document.getElementById('po-usnm').innerText = u.displayName;
+		document.getElementById('po-emil').innerText = u.email;
+
+
+		// Inputs
+		document.getElementById('poi-usnm').value = u.displayName;
+		document.getElementById('poi-emil').value = u.email;
+		// document.getElementById('poi-ppic').value = u.photoURL;
+	}
+
+	function updateProfileSettings(){
+		let currentUser = firebase.auth().currentUser
+		if (document.getElementById('po-emil').value !== currentUser.email){
+			currentUser.updateEmail(document.getElementById('po-emil').value);
+		}
+		if (document.getElementById('po-pswd').value !== '') {
+			currentUser.updatePassword(document.getElementById('po-pswd').value);
+		}
+		if (document.getElementById('po-usnm').value !== currentUser.displayName) {
+			currentUser.updateProfile({displayName: document.getElementById('po-usnm').value});
+		}
+		/*if (document.getElementById('po-ppic').value !== currentUser.photoURL) {
+			// TODO Add Storage content adder and URL getter for photoURL
+			console.log(currentUser.photoURL)
+		}*/
+	}
 }

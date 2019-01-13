@@ -11,6 +11,7 @@
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Questrial', sans-serif;
 }
 
 html,
@@ -20,7 +21,6 @@ body,
     overflow: hidden;
     width: 100%;
     height: 100%;
-    font-family: 'Questrial', sans-serif;
 }
 
 .container {
@@ -197,4 +197,86 @@ body,
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+}
+
+.profile-settings {
+    background-color: var(--menu-background-color);
+    width: 600px;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.profile-settings img {
+    float: left;
+    width: 100px;
+    height: auto;
+}
+
+.profile-settings .text-display {
+    color: white;
+    padding-left: 20px;
+    overflow: hidden;
+    width: 75%;
+}
+
+.text-display h4 {
+    margin-bottom: 5px;
+}
+
+.text-display span {
+    margin-left: 5px;
+    line-height: 17px;
+}
+
+.profile-settings .btn {
+    border: none;
+    background: none;
+    outline: none;
+    color: white;
+    background-color: #27ae60;
+    border-radius: 3px;
+    padding: 10px 8px;
+    margin: 5px;
+    -webkit-transition: background-color .17s ease,color .17s ease;
+    transition: background-color .17s ease,color .17s ease;
+}
+
+.profile-settings .btn:hover {
+    background-color: rgba(39, 174, 96, 0.8);
+    cursor: pointer;
+}
+
+.profile-settings .input-textbox {
+    width: 75%;
+    overflow: hidden;
+    font-size: 20px;
+    padding: 8px 0;
+    margin: 8px 0 8px 5px;
+    border-bottom: 1px solid #bdc3c7;
+}
+
+.profile-settings .input-textbox h4 {
+    color: white;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.profile-settings .input-textbox input {
+    border: none;
+    background: none;
+    outline: none;
+    color: white;
+    font-size: 18px;
+    width: 80%;
+    float:left;
+    margin: 0 10px;
+    letter-spacing: 1px;
+}
+
+.profile-settings .editToggle {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    margin: 0;
 }
