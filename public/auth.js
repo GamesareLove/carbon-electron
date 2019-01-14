@@ -12,6 +12,13 @@ function authReady(){
 
     $('#signup').click(su);
     $('#signin').click(lgn);
+
+    $('#admnlgn').click(() => {
+        firebase.auth().signInWithEmailAndPassword('admin@carbonappp.firebaseapp.com', 'password').then(() => {
+            window.location = 'index.html';
+        })
+    });
+
     $('#sendreset').click(rst);
     $('.container').keypress(e => {
         if(e.keyCode == 13){

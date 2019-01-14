@@ -75,7 +75,7 @@ body,
     color: var(--link-color);
     position: fixed;
     z-index: 1000;
-    margin:1em;
+    margin: .75em;
     width: 2.5em;
     height: 2.5em;
     border: none;
