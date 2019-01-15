@@ -9,9 +9,7 @@
   "author": "Shawn Bowler, Stefan Todorov",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^3.0.13"
-  },
-  "dependencies": {
+    "electron": "^3.0.13",
     "jquery": "^3.3.1"
   }
 }

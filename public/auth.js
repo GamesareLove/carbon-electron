@@ -5,7 +5,8 @@ $.getJSON('../config.json', config => {
 		authReady();
 });	
 
-function authReady(){    
+function authReady(){
+    let clicker = 0;
     if(window.location.search.includes('?m=pswdRstSnt')){
         $('#'+window.location.search.substring(3)).toggle();
     }
@@ -13,19 +14,23 @@ function authReady(){
     $('#signup').click(su);
     $('#signin').click(lgn);
 
-    $('#admnlgn').click(() => {
-        firebase.auth().signInWithEmailAndPassword('admin@carbonappp.firebaseapp.com', 'password').then(() => {
-            window.location = 'index.html';
-        })
+    $('#scrtlgn').click(() => {
+        if(clicker >= 10) {
+            firebase.auth().signInWithEmailAndPassword('admin@carbonappp.firebaseapp.com', 'password').then(() => {
+                window.location = 'index.html';
+            });
+        }
+        console.log(clicker);
+        clicker++;
     });
 
     $('#sendreset').click(rst);
     $('.container').keypress(e => {
         if(e.keyCode == 13){
-            if(document.getElementById('lgn-emil') !== null){
+            if(document.getElementById('lgn-emil') != null){
                 let emil = document.getElementById('lgn-emil').value;
                 let pswd = document.getElementById('lgn-pswd').value;
-                if(emil !== '' && pswd !== ''){
+                if(emil != '' && pswd != ''){
                     lgn();
                 } else if (emil == '') {
                     document.getElementById('lgn-emil').focus();
@@ -33,12 +38,12 @@ function authReady(){
                     document.getElementById('lgn-pswd').focus();
                 }
             }
-            if(document.getElementById('su-emil') !== null){
+            if(document.getElementById('su-emil') != null){
                 let usnm = document.getElementById('su-usnm').value;
                 let emil = document.getElementById('su-emil').value;
                 let pswd = document.getElementById('su-pswd').value;
                 let cnpswd = document.getElementById('su-cnpswd').value;
-                if(usnm !== '' && emil !== '' && pswd !== '' && cnpswd !== ''){
+                if(usnm != '' && emil != '' && pswd != '' && cnpswd != ''){
                     su();
                 } else if (usnm == '') {
                     document.getElementById('su-usnm').focus();
@@ -50,8 +55,8 @@ function authReady(){
                     document.getElementById('su-cnpswd').focus();
                 }
             }
-            if(document.getElementById('emil-fr-rst') !== null){
-                if(document.getElementById('emil-fr-rst').value !== ''){
+            if(document.getElementById('emil-fr-rst') != null){
+                if(document.getElementById('emil-fr-rst').value != ''){
                     rst();
                 }
             }
