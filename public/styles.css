@@ -113,7 +113,7 @@ body,
     width: 300px;
 }
 
-.menu-top .profile #profileThumb {
+.menu-top .profile .profileThumb {
     width: 42px;
     height: 42px;
     float: left;
@@ -209,10 +209,12 @@ body,
     margin-top: 10px;
 }
 
-.profile-settings img {
+.profile-settings .profileThumb {
     float: left;
     width: 100px;
-    height: auto;
+    height: 100px;
+    background-position: 50%;
+    background-size: cover;
 }
 
 .profile-settings .text-display {

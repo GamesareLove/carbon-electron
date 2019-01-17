@@ -60,7 +60,7 @@ function mainReady() {
 
 	function fillProfile(u) {
 		// Text
-		$('.po-ppic').attr('src', u.photoURL);
+		$('.po-ppic').attr('style', "background-image: url("+u.photoURL+");");
 		document.getElementById('po-usnm').innerText = u.displayName;
 		document.getElementById('po-emil').innerText = u.email;
 
