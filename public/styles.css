@@ -113,11 +113,23 @@ body,
     width: 300px;
 }
 
+<<<<<<< HEAD
 .menu-top .profile .profileThumb {
+=======
+.menu-top .profile #thumbWrapper {
+>>>>>>> dev
     width: 42px;
     height: 42px;
     float: left;
     margin-right: 1em;
+    background-position: 50%;
+    background-size: cover;
+}
+
+.menu-top .profile #thumbWrapper #profileThumb {
+    width: 100%;
+    height: 100%;
+    position: relative;
     background-position: 50%;
     background-size: cover;
 }
