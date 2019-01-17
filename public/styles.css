@@ -113,11 +113,13 @@ body,
     width: 300px;
 }
 
-.menu-top .profile img {
+.menu-top .profile #profileThumb {
     width: 42px;
     height: 42px;
     float: left;
     margin-right: 1em;
+    background-position: 50%;
+    background-size: cover;
 }
 
 .menu-top .profile svg {
