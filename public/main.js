@@ -8,11 +8,7 @@ $.getJSON('../config.json', config => {
 function mainReady() {
 	firebase.auth().onAuthStateChanged(user => {
 		if (user) {
-<<<<<<< HEAD
-			document.getElementById('activeUser').innerHTML = '<div id="thumbWrapper"><div id="profileThumb" style="background-image: url('+user.photoURL+');"></div></div><span>'+user.displayName+'</span><i class="fas fa-fw fa-caret-down"></i>';
-=======
-			document.getElementById('activeUser').innerHTML = '<div id="thumbWrapper"><div id="profileThumb" style="background-image: url('+user.photoURL+'");></div></div><span>'+user.displayName+'</span><i class="fas fa-fw fa-caret-down"></i>';
->>>>>>> dev
+			document.getElementById('activeUser').innerHTML = '<div class="profileThumb" style="background-image: url('+user.photoURL+');"></div><span>'+user.displayName+'</span><i class="fas fa-fw fa-caret-down"></i>';
 			console.log(user);
 			if(window.location.toString().includes('profilesettings.html')){
 				// console.log(window.location);
