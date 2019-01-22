@@ -55,12 +55,31 @@ function mainReady() {
 	 *   Profile Settings
 	 */
 
-	$('#updtPrflStngs').click(updateProfileSettings);
 	$('#poEdtTgle').click(toggleProfileSettingsEdit);
-	$('#cnclPflEdt').click(toggleProfileSettingsEdit);
+	$('#cnclPflEdt').click(() => {
+		toggleProfileSettingsEdit();
+		resetProfileEditFields();
+	});
+	$('#updtprfl').click(updateProfileSettings);
+	$('#chngpswd').click(() => {
+		$('#chngpswd').toggle();
+		$('#pswdchngr').toggle();
+	});
 
 	function toggleProfileSettingsEdit() {
 		$('.profile-settings').toggle();
+	}
+
+	function resetProfileEditFields() {
+		let cU = firebase.auth().currentUser;
+		document.getElementById('poi-usnm').value = cU.displayName;
+		document.getElementById('poi-emil').value = cU.email;
+		document.getElementById('poi-pswd').value = '';
+		document.getElementById('poi-nwpswd').value = '';
+		if($('#chngpswd').attr('style').toString().includes('display: none;')){
+			$('#pswdchngr').toggle();
+			$('#chngpswd').toggle();
+		}
 	}
 
 	function fillProfile(u) {
@@ -77,20 +96,27 @@ function mainReady() {
 	}
 
 	function updateProfileSettings(){
-		let currentUser = firebase.auth().currentUser
-		if (document.getElementById('po-emil').value !== currentUser.email){
-			currentUser.updateEmail(document.getElementById('po-emil').value);
-		}
-		if (document.getElementById('po-pswd').value !== '') {
-			currentUser.updatePassword(document.getElementById('po-pswd').value);
-		}
-		if (document.getElementById('po-usnm').value !== currentUser.displayName) {
-			currentUser.updateProfile({displayName: document.getElementById('po-usnm').value});
-		}
-		/*if (document.getElementById('po-ppic').value !== currentUser.photoURL) {
-			// TODO Add Storage content adder and URL getter for photoURL
-			console.log(currentUser.photoURL)
-		}*/
+		let currentUser = firebase.auth().currentUser;
+		let cred = firebase.auth.EmailAuthProvider.credential(currentUser.email, document.getElementById('poi-pswd').value);
+		currentUser.reauthenticateAndRetrieveDataWithCredential(cred).then(data => {
+			let reauthUser = data.user;
+			if (document.getElementById('poi-emil').value !== reauthUser.email){
+				console.log(document.getElementById('poi-emil').value, reauthUser.email);
+				//currentUser.updateEmail(document.getElementById('po-emil').value);
+			}
+			if (document.getElementById('poi-nwpswd').value !== '') {
+				console.log('New Password')
+				//currentUser.updatePassword(document.getElementById('po-pswd').value);
+			}
+			if (document.getElementById('poi-usnm').value !== reauthUser.displayName) {
+				console.log(document.getElementById('poi-usnm').value, reauthUser.displayName);
+				//currentUser.updateProfile({displayName: document.getElementById('po-usnm').value});
+			}
+			// if (document.getElementById('po-ppic').value !== reauthUser.photoURL) {
+			// 	// TODO Add Storage content adder and URL getter for photoURL
+			// 	console.log(currentUser.photoURL)
+			// }
+		});
 	}
 
 	function getOrgs(u, dbRef) {
