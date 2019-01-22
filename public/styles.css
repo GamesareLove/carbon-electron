@@ -302,3 +302,22 @@ body,
     right: 20px;
     margin: 0;
 }
+
+.groups {
+    width: 120px;
+}
+
+.groups div {
+    margin: 5px;
+    color: green;
+    border: 1px solid white;
+    padding: 5px 10px;
+    background-color: darkgrey;
+    width: 100%;
+}
+
+.groups div:hover {
+    color: white;
+    background-color: teal;
+    cursor: pointer;
+}

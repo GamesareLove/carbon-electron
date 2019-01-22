@@ -6,10 +6,15 @@ $.getJSON('../config.json', config => {
 });
 
 function mainReady() {
+	const db = firebase.firestore();
+	db.settings({ timestampsInSnapshots: true});
 	firebase.auth().onAuthStateChanged(user => {
 		if (user) {
 			document.getElementById('activeUser').innerHTML = '<div class="profileThumb" style="background-image: url('+user.photoURL+');"></div><span>'+user.displayName+'</span><i class="fas fa-fw fa-caret-down"></i>';
-			console.log(user);
+			// console.log(user);
+			if(window.location.toString().includes('index.html')){
+				getOrgs(user, db);
+			}
 			if(window.location.toString().includes('profilesettings.html')){
 				// console.log(window.location);
 				fillProfile(user);
@@ -86,5 +91,36 @@ function mainReady() {
 			// TODO Add Storage content adder and URL getter for photoURL
 			console.log(currentUser.photoURL)
 		}*/
+	}
+
+	function getOrgs(u, dbRef) {
+		const groupsArray = [];
+		const orgRef = dbRef.collection('organizations');
+		orgRef.get().then(orgSnap => {
+			orgSnap.forEach(orgDoc => {
+				if(orgDoc.get('members').includes(u.uid)){
+					// console.log(orgDoc.get('name'));
+					groupsArray.push(orgDoc.get('groups'));
+				}
+			});
+			getGroups(dbRef, groupsArray);
+		});
+	}
+
+	function getGroups(dbRef, groups){
+		const groupRef = dbRef.collection('groups');
+
+		groups.forEach(e => {
+			if(e != undefined){
+				// console.log(e);
+				e.forEach(ee => {
+					groupRef.doc(ee).get().then(groupSnap => {
+						let group = document.createElement('div');
+						group.innerText = groupSnap.data().name;
+						document.getElementById('groups').appendChild(group);
+					})
+				});
+			}
+		})
 	}
 }
