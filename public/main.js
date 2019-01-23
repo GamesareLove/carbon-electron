@@ -5,6 +5,8 @@ $.getJSON('../config.json', config => {
 		mainReady();
 });
 
+mainReady();
+
 function mainReady() {
 	const db = firebase.firestore();
 	db.settings({ timestampsInSnapshots: true});

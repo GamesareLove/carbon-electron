@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +10,7 @@
     <script src="fa-all.min.js"></script><!-- FontAwesome -->
     <script src="jquery-3.3.1.min.js"></script>
 </head>
+
 <body>
     <div class="container">
         <div id="menu" class="menu-wrap" style="display: none;">
@@ -37,7 +39,9 @@
                 <div class="inner-content">
                     <h3 style="color: white;">My Profile</h3>
                     <div class="profile-settings">
-                        <div class="profileThumb po-ppic"></div>
+                        <div class="profileThumb po-ppic">
+
+                        </div>
                         <div class="text-display" style="margin-bottom: 20px;">
                             <h4>Display Name</h4>
                             <span id="po-usnm"></span>
@@ -51,30 +55,30 @@
                     <div class="profile-settings edit" style="display: none;">
                         <div class="profileThumb po-ppic">
                             <div class="po-ppic-text">Upload Image</div>
-                            <input class="fileInput" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 0; cursor: pointer;" >
+                            <input class="fileInput" style="position: relative; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
                         </div>
-                        <div class="po-optn" style="display: block;">
-                            <div class="input-textbox" style="margin-bottom: 20px;">
-                                <h4>Display Name</h4>
-                                <input id="poi-usnm" type="text" placeholder="">
-                            </div>
-                            <div class="input-textbox" style="margin-bottom: 20px;">
-                                <h4>Email</h4>
-                                <input id="poi-emil" type="email" placeholder="">
-                            </div>
-                            <div class="input-textbox" style="margin-bottom: 20px;">
-                                <h4>Current Password</h4>
-                                <input id="poi-pswd" type="password" placeholder="">
-                            </div>
-                            <a id="chngpswd" href="#">Change Password?</a>
-                            <div id="pswdchngr" class="input-textbox" style="display: none;">
-                                <h4>New Password</h4>
-                                <input id="poi-nwpswd" type="password" placeholder="">
-                            </div>
-
+                        <div class="input-textbox">
+                            <h4>Display Name</h4>
+                            <input id="poi-usnm" type="text" placeholder="">
                         </div>
-                        <hr/>
-                        <input class="btn btn-danger" type="button" value="Delete Account" disabled><span style="float: right;"><input id="cnclPflEdt" class="btn btn-link" type="button" value="Cancel"><input id="updtprfl" class="btn" type="button" value="Save"></span>
+                        <div class="input-textbox">
+                            <h4>Email</h4>
+                            <input id="poi-emil" type="email" placeholder="">
+                        </div>
+                        <div class="input-textbox">
+                            <h4>Current Password</h4>
+                            <input id="poi-pswd" type="password" placeholder="">
+                        </div>
+                        <a id="chngpswd" class="chngpswd" href="#">Change Password?</a>
+                        <div id="pswdchngr" class="input-textbox chngpswd" style="display: none;">
+                            <h4>New Password</h4>
+                            <input id="poi-nwpswd" type="password" placeholder="">
+                        </div>
+                        <input class="btn btn-danger" id="dltAcntBtn" type="button" value="Delete Account" disabled>
+                        <span style="float: right;">
+                            <input id="cnclPflEdt" class="btn btn-link" type="button" value="Cancel">
+                            <input id="updtprfl" class="btn" type="button" value="Save">
+                        </span>
                     </div>
                 </div>
             </div>
@@ -83,4 +87,5 @@
     <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
     <script src="main.js"></script>
 </body>
+
 </html>
