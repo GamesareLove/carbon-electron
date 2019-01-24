@@ -54,28 +54,28 @@
                     </div>
                     <div class="profile-settings edit" style="display: none;">
                         <div class="profileThumb po-ppic">
+                            <input class="fileInput" style="width: 100%; height: 100%; opacity: 0; cursor: pointer;">
                             <div class="po-ppic-text">Upload Image</div>
-                            <input class="fileInput" style="position: relative; top: 0px; left: 0px; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
                         </div>
                         <div class="input-textbox">
-                            <h4>Display Name</h4>
+                            <label for="poi-usnm"><h4>Display Name</h4></label>
                             <input id="poi-usnm" type="text" placeholder="">
                         </div>
                         <div class="input-textbox">
-                            <h4>Email</h4>
+                            <label for="poi-emil"><h4>Email</h4></label>
                             <input id="poi-emil" type="email" placeholder="">
                         </div>
                         <div class="input-textbox">
-                            <h4>Current Password</h4>
+                            <label for="poi-pswd"><h4>Current Password</h4></label>
                             <input id="poi-pswd" type="password" placeholder="">
                         </div>
-                        <a id="chngpswd" class="chngpswd" href="#">Change Password?</a>
+                        <input type="button" id="chngpswd" class="chngpswd btn-alt" value="Change Password?">
                         <div id="pswdchngr" class="input-textbox chngpswd" style="display: none;">
-                            <h4>New Password</h4>
+                            <label for="poi-nwpswd"><h4>New Password</h4></label>
                             <input id="poi-nwpswd" type="password" placeholder="">
                         </div>
                         <input class="btn btn-danger" id="dltAcntBtn" type="button" value="Delete Account" disabled>
-                        <span style="float: right;">
+                        <span>
                             <input id="cnclPflEdt" class="btn btn-link" type="button" value="Cancel">
                             <input id="updtprfl" class="btn" type="button" value="Save">
                         </span>
