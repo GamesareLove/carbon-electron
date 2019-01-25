@@ -5,7 +5,17 @@ const { app, BrowserWindow } = require('electron');
 let win;
 
 function createWindow(){
-    win = new BrowserWindow({ width: 1200, height: 900, frame: false, webPreferences: {devTools: true}});
+    win = new BrowserWindow({ 
+        width: 1200,
+        height: 900,
+        frame: false,
+        webPreferences: {devTools: true},
+        'minHeight': 900,
+        'minWidth': 1200,
+        'maxHeight': 900,
+        'maxWidth': 1200,
+        //'fullscreen': true
+    });
 
     win.loadFile('public/login.html');
 

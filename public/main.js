@@ -169,9 +169,20 @@ function mainReady() {
 				let meeting = document.createElement('div');
 				meeting.innerText = meetingSnap.data().name;
 				meeting.setAttribute('class', 'meeting');
-				meeting.addEventListener('click', () => {console.log(meetingSnap.id);});
+				meeting.addEventListener('click', () => {
+					if(!meeting.getAttribute('class').includes('active')){
+						let meetingElement = document.querySelectorAll('.meeting');
+						meetingElement.forEach(c => {c.classList.remove('active')});
+						meeting.classList.add('active');
+						getPosts(meetingSnap.data().posts);
+					}
+				});
 				document.getElementById('meetings').appendChild(meeting);
 			})
 		})
+	}
+
+	function getPosts(d) {
+		console.log(d);
 	}
 }
