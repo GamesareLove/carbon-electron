@@ -13,7 +13,7 @@ function mainReady() {
 			document.getElementById('activeUser').innerHTML = '<div class="profileThumb" style="background-image: url('+user.photoURL+');"></div><span>'+user.displayName+'</span><i class="fas fa-fw fa-caret-down"></i>';
 			// console.log(user);
 			if(window.location.toString().includes('index.html')){
-				getOrgs(user, db);
+				getOrgs(user);
 			}
 			if(window.location.toString().includes('profilesettings.html')){
 				// console.log(window.location);
@@ -76,7 +76,7 @@ function mainReady() {
 		document.getElementById('poi-emil').value = cU.email;
 		document.getElementById('poi-pswd').value = '';
 		document.getElementById('poi-nwpswd').value = '';
-		if($('#chngpswd').attr('style').toString().includes('display: none;')){
+		if($('#chngpswd').attr('style') != undefined && $('#chngpswd').attr('style').toString().includes('display: none;')){
 			$('#pswdchngr').toggle();
 			$('#chngpswd').toggle();
 		}
@@ -119,9 +119,9 @@ function mainReady() {
 		});
 	}
 
-	function getOrgs(u, dbRef) {
+	function getOrgs(u) {
 		const groupsArray = [];
-		const orgRef = dbRef.collection('organizations');
+		const orgRef = db.collection('organizations');
 		orgRef.get().then(orgSnap => {
 			orgSnap.forEach(orgDoc => {
 				if(orgDoc.get('members').includes(u.uid)){
@@ -129,12 +129,12 @@ function mainReady() {
 					groupsArray.push(orgDoc.get('groups'));
 				}
 			});
-			getGroups(dbRef, groupsArray);
+			getGroups(groupsArray);
 		});
 	}
 
-	function getGroups(dbRef, groups){
-		const groupRef = dbRef.collection('groups');
+	function getGroups(groups){
+		const groupRef = db.collection('groups');
 
 		groups.forEach(e => {
 			if(e != undefined){
@@ -143,10 +143,35 @@ function mainReady() {
 					groupRef.doc(ee).get().then(groupSnap => {
 						let group = document.createElement('div');
 						group.innerText = groupSnap.data().name;
+						group.setAttribute('class', 'group');
 						document.getElementById('groups').appendChild(group);
+						group.addEventListener('click', () => {
+							if(!group.getAttribute('class').includes('active')){
+								let groupElement = document.querySelectorAll('.group');
+								groupElement.forEach(c => {c.classList.remove('active')});
+								group.classList.add('active');
+								getMeetings(groupSnap.data().meetings);
+							}
+						});
 					})
 				});
 			}
+		})
+	}
+
+	function getMeetings(meetings) {
+		document.getElementById('meetings').innerHTML = '';
+
+		const meetingRef = db.collection('meetings');
+
+		meetings.forEach(e => {
+			meetingRef.doc(e).get().then(meetingSnap => {
+				let meeting = document.createElement('div');
+				meeting.innerText = meetingSnap.data().name;
+				meeting.setAttribute('class', 'meeting');
+				meeting.addEventListener('click', () => {console.log(meetingSnap.id);});
+				document.getElementById('meetings').appendChild(meeting);
+			})
 		})
 	}
 }

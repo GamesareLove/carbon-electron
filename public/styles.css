@@ -329,25 +329,6 @@ body,
     margin: 0;
 }
 
-.groups {
-    width: 120px;
-}
-
-.groups div {
-    margin: 5px;
-    color: green;
-    border: 1px solid white;
-    padding: 5px 10px;
-    background-color: darkgrey;
-    width: 100%;
-}
-
-.groups div:hover {
-    color: white;
-    background-color: teal;
-    cursor: pointer;
-}
-
 .profile-settings.edit .btn-alt {
     width: 75%;
     height: 60%;
@@ -360,14 +341,59 @@ body,
     margin: 12px 0;
 }
 
-.btn-danger {
-    background-color: rgba(0,0,0,.2) !important;
-    border: 1.5px solid rgba(202, 26, 26, 0.7) !important;
-    color: rgb(175, 175, 175) !important;
+.profile-settings.edit .btn-danger {
+    background-color: rgba(0,0,0,.2);
+    border: 1.5px solid rgba(202, 26, 26, 0.7);
+    color: rgb(175, 175, 175);
 }
 
-.btn-danger:hover {
-    color: white !important;
-    background-color: rgba(0,0,0,0.3) !important;
-    border-color: rgb(202, 26, 26) !important;
+.profile-settings.edit .btn-danger:hover {
+    color: white;
+    background-color: rgba(0,0,0,0.3);
+    border-color: rgb(202, 26, 26);
+}
+
+.groups {
+    width: 120px;
+    display: inline-block;
+}
+
+.groups .group {
+    margin: 5px;
+    color: green;
+    border: 1px solid white;
+    padding: 5px 10px;
+    background-color: darkgrey;
+    width: 100%;
+}
+
+.groups .group.active {
+    color: black;
+    background-color: cyan;
+}
+
+.groups .group:hover:not(.active) {
+    color: white;
+    background-color: teal;
+    cursor: pointer;
+}
+
+.meetings {
+    width: 120px;
+    display: inline-block;
+}
+
+.meetings .meeting {
+    margin: 5px;
+    color: green;
+    border: 1px solid white;
+    padding: 5px 10px;
+    background-color: darkgrey;
+    width: 100%;
+}
+
+.meetings .meeting:hover:not(.active) {
+    color: white;
+    background-color: teal;
+    cursor: pointer;
 }
