@@ -96,26 +96,36 @@ function mainReady() {
 	}
 
 	function updateProfileSettings(){
+		let e, p, n, u;
 		let currentUser = firebase.auth().currentUser;
 		let cred = firebase.auth.EmailAuthProvider.credential(currentUser.email, document.getElementById('poi-pswd').value);
 		currentUser.reauthenticateAndRetrieveDataWithCredential(cred).then(data => {
-			let reauthUser = data.user;
-			if (document.getElementById('poi-emil').value !== reauthUser.email){
-				console.log(document.getElementById('poi-emil').value, reauthUser.email);
-				//currentUser.updateEmail(document.getElementById('po-emil').value);
+			e = document.getElementById('poi-emil').value;
+			p = document.getElementById('poi-pswd').value;
+			n = document.getElementById('poi-usnm').value;
+			if (document.getElementById('po-ppic-input').value != '') {
+				let bloop = document.getElementById('po-ppic-input').files[0];
+				let storRef = firebase.storage().ref('user/'+currentUser.uid+'/'+bloop.name);
+				storRef.put(bloop).then(() => {
+					storRef.getDownloadURL().then(url => {
+						oopdateProofile(e, p, n, url, currentUser);
+					});
+				});
+			} else {
+				oopdateProofile(e, p, n, u, currentUser);
 			}
-			if (document.getElementById('poi-nwpswd').value !== '') {
-				console.log('New Password')
-				//currentUser.updatePassword(document.getElementById('po-pswd').value);
-			}
-			if (document.getElementById('poi-usnm').value !== reauthUser.displayName) {
-				console.log(document.getElementById('poi-usnm').value, reauthUser.displayName);
-				//currentUser.updateProfile({displayName: document.getElementById('po-usnm').value});
-			}
-			// if (document.getElementById('po-ppic').value !== reauthUser.photoURL) {
-			// 	// TODO Add Storage content adder and URL getter for photoURL
-			// 	console.log(currentUser.photoURL)
-			// }
+		});
+	}
+
+	function oopdateProofile(e, p, n, u, cu){
+		if(e != cu.email && e != undefined){cu.updateEmail(e);}
+		if(p != '' && p != undefined){cu.updatePassword(p)}
+		let ur = u ? u : cu.photoURL;
+		cu.updateProfile({
+			displayName: n,
+			photoURL: ur
+		}).then(() => {
+			window.location.reload();
 		});
 	}
 
@@ -190,11 +200,15 @@ function mainReady() {
 						let postElement = document.querySelectorAll('.post');
 						postElement.forEach(c => {c.classList.remove('active')});
 						post.classList.add('active');
-						//getPosts(postSnap.data().posts);
+						showPost(postSnap.data());
 					}
 				});
 				document.getElementById('posts').appendChild(post);
 			})
 		})
+	}
+
+	function showPost(post) {
+		console.log(post);
 	}
 }
