@@ -134,13 +134,11 @@ function mainReady() {
 	}
 
 	function getGroups(groups){
-		const groupRef = db.collection('groups');
-
 		groups.forEach(e => {
 			if(e != undefined){
 				// console.log(e);
 				e.forEach(ee => {
-					groupRef.doc(ee).get().then(groupSnap => {
+					ee.get().then(groupSnap => {
 						let group = document.createElement('div');
 						group.innerText = groupSnap.data().name;
 						group.setAttribute('class', 'group');
@@ -161,11 +159,9 @@ function mainReady() {
 
 	function getMeetings(meetings) {
 		document.getElementById('meetings').innerHTML = '';
-
-		const meetingRef = db.collection('meetings');
-
+		document.getElementById('posts').innerHTML = '';
 		meetings.forEach(e => {
-			meetingRef.doc(e).get().then(meetingSnap => {
+			e.get().then(meetingSnap => {
 				let meeting = document.createElement('div');
 				meeting.innerText = meetingSnap.data().name;
 				meeting.setAttribute('class', 'meeting');
@@ -182,7 +178,23 @@ function mainReady() {
 		})
 	}
 
-	function getPosts(d) {
-		console.log(d);
+	function getPosts(posts) {
+		document.getElementById('posts').innerHTML = '';
+		posts.forEach(e => {
+			e.get().then(postSnap => {
+				let post = document.createElement('div');
+				post.innerText = postSnap.data().title;
+				post.setAttribute('class', 'post');
+				post.addEventListener('click', () => {
+					if(!post.getAttribute('class').includes('active')){
+						let postElement = document.querySelectorAll('.post');
+						postElement.forEach(c => {c.classList.remove('active')});
+						post.classList.add('active');
+						//getPosts(postSnap.data().posts);
+					}
+				});
+				document.getElementById('posts').appendChild(post);
+			})
+		})
 	}
 }

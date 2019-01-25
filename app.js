@@ -14,7 +14,7 @@ function createWindow(){
         'minWidth': 1200,
         'maxHeight': 900,
         'maxWidth': 1200,
-        //'fullscreen': true
+        'fullscreen': false
     });
 
     win.loadFile('public/login.html');

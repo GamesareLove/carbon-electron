@@ -397,6 +397,11 @@ body,
     width: 80%;
 }
 
+.meetings .meeting.active {
+    color: black;
+    background-color: cyan;
+}
+
 .meetings .meeting:hover:not(.active) {
     color: white;
     background-color: teal;
@@ -415,6 +420,11 @@ body,
     padding: 5px 10px;
     background-color: darkgrey;
     width: 80%;
+}
+
+.posts .post.active {
+    color: black;
+    background-color: cyan;
 }
 
 .posts .post:hover:not(.active) {
