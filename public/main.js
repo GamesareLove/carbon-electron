@@ -211,6 +211,16 @@ function mainReady() {
 	}
 
 	function showPost(post) {
-		console.log(post);
+		let postTitle = post.title;
+		let postDate = post.metadata.creationDate;
+		let postBody = post.body;
+		let postAttcLen = post.metadata.attachments.length;
+		let postAuthor = post.author;
+		console.log(postTitle, postDate, postBody, postAttcLen);
+		document.getElementById('post-title').innerText = postTitle;
+		document.getElementById('post-body').innerHTML = postBody;
+		document.getElementById('post-date').innerText = `By ${postAuthor.displayName} on ${new Date(postDate.seconds*1000)}`;
+		document.getElementById('post-edit').style.display = 'block';
+		document.getElementById('post-atch').innerText = `${postAttcLen} File(s) Attached`;
 	}
 }

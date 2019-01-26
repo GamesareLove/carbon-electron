@@ -13,8 +13,7 @@ function createWindow(){
         'minHeight': 900,
         'minWidth': 1200,
         'maxHeight': 900,
-        'maxWidth': 1200,
-        'fullscreen': false
+        'maxWidth': 1200
     });
 
     win.loadFile('public/login.html');
