@@ -60,7 +60,7 @@ function mainReady() {
 		toggleProfileSettingsEdit();
 		resetProfileEditFields();
 	});
-	$('#updtprfl').click(updateProfileSettings);
+	//$('#updtprfl').click(updateProfileSettings);
 	$('#chngpswd').click(() => {
 		$('#chngpswd').toggle();
 		$('#pswdchngr').toggle();
@@ -99,22 +99,24 @@ function mainReady() {
 		let e, p, n, u;
 		let currentUser = firebase.auth().currentUser;
 		let cred = firebase.auth.EmailAuthProvider.credential(currentUser.email, document.getElementById('poi-pswd').value);
-		currentUser.reauthenticateAndRetrieveDataWithCredential(cred).then(data => {
-			e = document.getElementById('poi-emil').value;
-			p = document.getElementById('poi-pswd').value;
-			n = document.getElementById('poi-usnm').value;
-			if (document.getElementById('po-ppic-input').value != '') {
-				let bloop = document.getElementById('po-ppic-input').files[0];
-				let storRef = firebase.storage().ref('user/'+currentUser.uid+'/'+bloop.name);
-				storRef.put(bloop).then(() => {
-					storRef.getDownloadURL().then(url => {
-						oopdateProofile(e, p, n, url, currentUser);
+		e = document.getElementById('poi-emil').value;
+		p = document.getElementById('poi-pswd').value;
+		n = document.getElementById('poi-usnm').value;
+		if (document.getElementById('po-ppic-input').value != '') {
+			let bloop = document.getElementById('po-ppic-input').files[0];
+			let storRef = firebase.storage().ref('user/'+currentUser.uid+'/'+bloop.name);
+			storRef.put(bloop).then(() => {
+				storRef.getDownloadURL().then(url => {
+					currentUser.reauthenticateAndRetrieveDataWithCredential(cred).then(data => {
+						oopdateProofile(e, p, n, url, data.user);
 					});
 				});
-			} else {
-				oopdateProofile(e, p, n, u, currentUser);
-			}
-		});
+			});
+		} else {
+			currentUser.reauthenticateAndRetrieveDataWithCredential(cred).then(data => {
+				oopdateProofile(e, p, n, u, data.user);
+			});
+		}
 	}
 
 	function oopdateProofile(e, p, n, u, cu){
