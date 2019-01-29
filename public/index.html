@@ -38,13 +38,29 @@
                     <div id="groups" class="groups"></div>
                     <div id="meetings" class="meetings"></div>
                     <div id="posts" class="posts"></div>
-                    <div class="post-container">
-                        <span id="post-title" class="title bump">Lorem, ipsum.</span>
+                    <div id="group-container" class="display-container" style="display: none;">
+                        <span id="display-title" class="title bump"></span>
+                        <span id="display-date" class="date bump"></span>
+                        <div id="display-tags" class="tags bump"></div>
+                        <div id="display-body" class="postContent bump"></div>
+                        <input type="button" id="group-view-atch" class="attachBtn" value="View Attachments" />
+                        <span id="display-atch" class="attachNum"></span>
+                        <input type="button" id="display-edit" class="btn editBtn" style="display: none;" value="Edit Post" />
+                    </div>
+                    <div id="meeting-container" class="display-container" style="display: none;">
+                        <span id="display-title" class="title bump"></span>
+                        <span id="display-date" class="date bump"></span>
+                        <div id="display-tags" class="tags bump"></div>
+                        <div id="display-body" class="postContent bump"></div>
+                        <input type="button" id="display-view-atch" class="attachBtn" value="View Attachments" />
+                        <span id="display-atch" class="attachNum"></span>
+                        <input type="button" id="display-edit" class="btn editBtn" style="display: none;" value="Edit Post" />
+                    </div>
+                    <div id="post-container" class="display-container" style="display: none;">
+                        <span id="post-title" class="title bump"></span>
                         <span id="post-date" class="date bump"></span>
                         <div id="post-tags" class="tags bump"></div>
-                        <div id="post-body" class="postContent bump">
-                            Lorem ipsum dolor sit amet.
-                        </div>
+                        <div id="post-body" class="postContent bump"></div>
                         <input type="button" id="post-view-atch" class="attachBtn" value="View Attachments" />
                         <span id="post-atch" class="attachNum"></span>
                         <input type="button" id="post-edit" class="btn editBtn" style="display: none;" value="Edit Post" />

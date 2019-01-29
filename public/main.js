@@ -160,6 +160,9 @@ function mainReady() {
 								let groupElement = document.querySelectorAll('.group');
 								groupElement.forEach(c => {c.classList.remove('active')});
 								group.classList.add('active');
+
+								
+
 								getMeetings(groupSnap.data().meetings);
 							}
 						});
@@ -222,5 +225,7 @@ function mainReady() {
 		document.getElementById('post-date').innerText = `By ${postAuthor.displayName} on ${new Date(postDate.seconds*1000)}`;
 		document.getElementById('post-edit').style.display = 'block';
 		document.getElementById('post-atch').innerText = `${postAttcLen} File(s) Attached`;
+
+		document.getElementById('post-container').style.display = '';
 	}
 }

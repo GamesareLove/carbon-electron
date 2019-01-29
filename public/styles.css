@@ -466,55 +466,63 @@ body,
     border-color: var(--link-hover-color);
 }
 
-.post-container {
-    /* margin-left: 200px;
-    margin-top: 100px; */
+.display-container {
     position: relative;
     top: -5em;
     width: 53vw;
     height: 100vh;
-    display: grid;
-    grid-template-rows: 5em 25px 35px 30px 1fr 40px 10px;
-    grid-template-columns: 10px 120px 1fr 90px 10px;
     background-color: var(--menu-background-color);
+    display: grid;
 }
 
-.post-container .bump {
+#group-container {
+    grid-template-rows: 5em 25px 20px 1fr 30px 1fr 40px 10px;
+    grid-template-columns: 10px 120px 1fr 90px 10px;
+}
+
+#meeting-container {
+    grid-template-rows: 5em 25px 20px 35px 1fr 30px 1fr 40px 10px;
+    grid-template-columns: 10px 120px 1fr 90px 10px;
+}
+
+#post-container {
+    grid-template-rows: 5em 25px 20px 30px 1fr 40px 10px;
+    grid-template-columns: 10px 120px 1fr 90px 10px;
+}
+
+.display-container .bump {
     grid-column: 2/5;
     width: 100%;
     padding-top: 1px;
 }
 
-.post-container .title {
+.display-container .title {
     font-size: 26px;
-    background-color: var(--menu-background-color);
+    font-weight: 700;
     grid-row: 2/3;
     color: var(--link-color);
 }
 
-.post-container .date {
+.display-container .date {
     padding-left: 1.5em;
     font-size: 14px;
-    background-color: var(--menu-background-color);
     grid-row: 3/4;
     color: var(--link-color);
 }
 
-.post-container .tags {
-    background-color: var(--menu-background-color);
+.display-container .tags {
     grid-row: 4/5;
     color: var(--link-color);
 }
 
-.post-container .postContent {
+.display-container .postContent {
     font-size: 16px;
-    background-color: var(--menu-background-color);
     grid-row: 5/6;
     overflow-y: auto;
     color: var(--link-color);
 }
 
-.post-container .attachBtn {
+.display-container .attachBtn {
     outline: none;
     grid-row: 6/7;
     grid-column: 2/3;
@@ -533,13 +541,13 @@ body,
     justify-self: center;
 }
 
-.post-container .attachBtn:hover {
+.display-container .attachBtn:hover {
     border-color: var(--link-hover-color);
     color: var(--link-hover-color);
     background-color: var(--menu-background-color);
 }
 
-.post-container .attachNum {
+.display-container .attachNum {
     font-size: 14px;
     background-color: var(--menu-background-color);
     grid-row: 6/7;
@@ -549,7 +557,7 @@ body,
     margin-left: 5px;
 }
 
-.post-container .editBtn {
+.display-container .editBtn {
     outline: none;
     grid-row: 6/7;
     grid-column: 4/5;
@@ -568,7 +576,7 @@ body,
     justify-self: center;
 }
 
-.post-container .editBtn:hover {
+.display-container .editBtn:hover {
     border-color: var(--link-hover-color);
     color: var(--link-hover-color);
     background-color: var(--menu-background-color);
