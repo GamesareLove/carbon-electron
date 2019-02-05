@@ -132,3 +132,12 @@ body {
     width: 80%;
     margin: 5px 10px 0;
 }
+
+/* 
+Title bar fix
+*/
+
+#title-bar {
+    height: 32px;
+    width:100%;
+}
