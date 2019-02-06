@@ -160,6 +160,9 @@ function mainReady() {
 								let groupElement = document.querySelectorAll('.group');
 								groupElement.forEach(c => {c.classList.remove('active')});
 								group.classList.add('active');
+
+								
+
 								getMeetings(groupSnap.data().meetings);
 							}
 						});
@@ -222,5 +225,58 @@ function mainReady() {
 		document.getElementById('post-date').innerText = `By ${postAuthor.displayName} on ${new Date(postDate.seconds*1000)}`;
 		document.getElementById('post-edit').style.display = 'block';
 		document.getElementById('post-atch').innerText = `${postAttcLen} File(s) Attached`;
+
+		document.getElementById('post-container').style.display = '';
 	}
 }
+
+var createTitlebar = function createTitlebar() {
+	const $ = require('jquery');
+	const remote = require('electron').remote;
+
+	$('body').prepend($('<div></div>', { id: "title-bar" }).load(`titlebar.html`));
+
+	$(`#title-bar`).ready(() => {
+
+		 let window = remote.BrowserWindow.getFocusedWindow();
+
+		 $('#min-btn').click(() => {
+			  window = remote.BrowserWindow.getFocusedWindow();
+			  window.minimize();
+		 });
+
+		 $('#max-btn').click(() => {
+			  window = remote.BrowserWindow.getFocusedWindow();
+			  window.maximize();
+			  toggleMaxRestoreButtons();
+		 });
+
+		 $('#restore-btn').click(() => {
+			  window = remote.BrowserWindow.getFocusedWindow();
+			  window.unmaximize();
+			  toggleMaxRestoreButtons();
+		 });
+
+		 toggleMaxRestoreButtons();
+		 window.on('maximize', toggleMaxRestoreButtons);
+		 window.on('unmaximize', toggleMaxRestoreButtons);
+
+		 $('#close-btn').click(() => {
+			  window = remote.BrowserWindow.getFocusedWindow();
+			  window.close();
+		 });
+
+		 function toggleMaxRestoreButtons() {
+			  window = remote.BrowserWindow.getFocusedWindow();
+			  if (window.isMaximized()) {
+				   $('#max-btn').css('display', 'none');
+				   $('#restore-btn').css('display', 'flex');
+			  } else {
+				   $('#max-btn').css('display', 'flex');
+				   $('#restore-btn').css('display', 'none');
+			  }
+		 }
+	})
+}
+
+createTitlebar();

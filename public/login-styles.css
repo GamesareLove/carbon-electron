@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Questrial');
-
 :root {
     --text-color: #FFFFFF;
     --text-hover-color: #d8d8d8;
@@ -24,7 +23,7 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     color: white;
 }
 
@@ -57,7 +56,7 @@ body {
     color: var(--test-color);
     font-size: 18px;
     width: 80%;
-    float:left;
+    float: left;
     margin: 0 10px;
     letter-spacing: 1px;
 }
@@ -71,9 +70,10 @@ body {
     font-size: 18px;
     cursor: pointer;
     margin: 12px 0;
-    -webkit-transition: background-color .17s ease,color .17s ease;
-    transition: background-color .17s ease,color .17s ease;
+    -webkit-transition: background-color .17s ease, color .17s ease;
+    transition: background-color .17s ease, color .17s ease;
 }
+
 .btn:hover {
     border-color: var(--text-hover-color);
     color: var(--text-hover-color);
@@ -131,4 +131,13 @@ body {
     float: left;
     width: 80%;
     margin: 5px 10px 0;
+}
+
+/* 
+Title bar fix
+*/
+
+#title-bar {
+    height: 22px;
+    width: 100%;
 }

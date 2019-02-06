@@ -1,0 +1,108 @@
+<header id="titlebar">
+    <div id="drag-region">
+        <div id="window-title"> <span>Carbon-Electron-Developer</span> </div>
+        <div id="window-controls">
+            <div class="button" id="min-btn"> <span>&#xE921;</span> </div>
+            <div class="button" id="max-btn"> <span>&#xE922;</span> </div>
+            <div class="button" id="restore-btn"> <span>&#xE923;</span> </div>
+            <div class="button" id="close-btn"> <span>&#xE8BB;</span> </div>
+        </div>
+    </div>
+</header>
+<style>
+    @font-face {
+        font-family: "Segoe MDL2 Assets";
+        src: url('./fonts/SegMDL2.ttf');
+    }
+
+    #title-bar {
+        margin-bottom: 8px;
+    }
+
+    #titlebar {
+        display: block;
+        position: fixed;
+        height: 22px;
+        width: 100%;
+        background: #254053;
+        color: #FFF;
+        padding: 4px;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+    }
+
+    #titlebar #drag-region {
+        width: 100%;
+        height: 100%;
+        -webkit-app-region: drag;
+        display: grid;
+        grid-template-columns: auto 138px;
+    }
+
+    #window-controls {
+        display: grid;
+        grid-template-columns: repeat(3, 46px);
+        position: absolute;
+        top: 0;
+        right: 7px;
+        height: 100%;
+        font-size: 10px;
+        -webkit-app-region: no-drag;
+    }
+
+    #window-controls * {
+        font-family: "Segoe MDL2 Assets";
+    }
+
+    #window-controls .button {
+        grid-row: 1 / span 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        user-select: none;
+        cursor: default;
+        opacity: 0.8;
+    }
+
+    #window-controls #min-btn {
+        grid-column: 1;
+    }
+
+    #window-controls #max-btn,
+    #window-controls #restore-btn {
+        grid-column: 2;
+    }
+
+    #window-controls #close-btn {
+        grid-column: 3;
+    }
+
+    #window-controls .button:hover {
+        background: rgba(255, 255, 255, 0.2);
+        opacity: 1;
+    }
+
+    #window-controls #close-btn:hover {
+        background: #E81123;
+    }
+
+    #window-controls #restore-btn {
+        display: none;
+    }
+
+    #window-title {
+        grid-column: 1;
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+        margin-left: 8px;
+        overflow-x: hidden;
+    }
+
+    #window-title span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.5;
+    }
+</style>
