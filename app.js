@@ -9,10 +9,9 @@ function createWindow(){
         width: 1200,
         height: 900,
         frame: false,
-        resizable: true,
         webPreferences: {devTools: true},
-        'minHeight': 900,
-        'minWidth': 1200
+        'minHeight': 600,
+        'minWidth': 900
     });
 
     win.loadFile('public/login.html');

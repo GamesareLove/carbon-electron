@@ -366,12 +366,13 @@ html, body, .container, .content-wrap {
 }
 
 .flexy {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(175px, 1fr)) 5fr;
 }
 
 .groups {
-    width: 175px;
-    display: inline-block;
+    width: 100%;
+    grid-column: 1/2;
 }
 
 .groups .group {
@@ -399,8 +400,8 @@ html, body, .container, .content-wrap {
 }
 
 .meetings {
-    width: 175px;
-    display: inline-block;
+  grid-column: 2/3;
+  width: 100%;
 }
 
 .meetings .meeting {
@@ -428,8 +429,8 @@ html, body, .container, .content-wrap {
 }
 
 .posts {
-    width: 175px;
-    display: inline-block;
+  grid-column: 3/4;
+  width: 100%;
 }
 
 .posts .post {
@@ -459,10 +460,11 @@ html, body, .container, .content-wrap {
 .display-container {
     position: relative;
     top: -5em;
-    width: 53vw;
-    height: 100vh;
+    width: calc(100% - 48px);
+    height: calc(100vh - 30px);
     background-color: var(--menu-background-color);
     display: grid;
+    grid-column: 4/5;
 }
 
 #group-container {
