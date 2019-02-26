@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Questrial');
 :root {
-    --link-color: #FFFFFF;
+    --link-color: whitesmoke;
     --link-hover-color: #d8d8d8;
     --menu-background-color: #243342;
     --content-background-color: #2b3e51;
@@ -370,91 +370,49 @@ html, body, .container, .content-wrap {
     grid-template-columns: repeat(3, minmax(175px, 1fr)) 5fr;
 }
 
-.groups {
+.typeList {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.typeList > div {
+    width: 80%;
+    background-color: transparent;
+    border: 2px solid var(--link-color);
+    color: var(--link-color);
+    padding: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    margin: 5px 0;
+    text-align: center;
+    line-height: 22px;
+}
+
+.typeList > div.active {
+    color: var(--active-color);
+    background-color: var(--menu-background-color);
+    border-color: var(--active-color);
+}
+
+.typeList > div:hover:not(.active) {
+    color: var(--link-hover-color);
+    background-color: var(--menu-background-color);
+    cursor: pointer;
+    border-color: var(--link-hover-color);
+}
+
+#groups {
     grid-column: 1/2;
 }
 
-.groups .group {
-    width: 80%;
-    background-color: transparent;
-    border: 2px solid var(--link-color);
-    color: var(--link-color);
-    padding: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    margin: 5px 0;
-}
-
-.groups .group.active {
-    color: var(--active-color);
-    background-color: var(--menu-background-color);
-    border-color: var(--active-color);
-}
-
-.groups .group:hover:not(.active) {
-    color: var(--link-hover-color);
-    background-color: var(--menu-background-color);
-    cursor: pointer;
-    border-color: var(--link-hover-color);
-}
-
-.meetings {
+#meetings {
   grid-column: 2/3;
-  width: 100%;
 }
 
-.meetings .meeting {
-    width: 80%;
-    background-color: transparent;
-    border: 2px solid var(--link-color);
-    color: var(--link-color);
-    padding: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    margin: 5px 0;
-}
-
-.meetings .meeting.active {
-    color: var(--active-color);
-    background-color: var(--menu-background-color);
-    border-color: var(--active-color);
-}
-
-.meetings .meeting:hover:not(.active) {
-    color: var(--link-hover-color);
-    background-color: var(--menu-background-color);
-    cursor: pointer;
-    border-color: var(--link-hover-color);
-}
-
-.posts {
+#posts {
   grid-column: 3/4;
-  width: 100%;
-}
-
-.posts .post {
-    width: 80%;
-    background-color: transparent;
-    border: 2px solid var(--link-color);
-    color: var(--link-color);
-    padding: 5px;
-    font-size: 18px;
-    cursor: pointer;
-    margin: 5px 0;
-}
-
-.posts .post.active {
-    color: var(--active-color);
-    background-color: var(--menu-background-color);
-    border-color: var(--active-color);
-}
-
-.posts .post:hover:not(.active) {
-    color: var(--link-hover-color);
-    background-color: var(--menu-background-color);
-    cursor: pointer;
-    border-color: var(--link-hover-color);
 }
 
 .display-container {
