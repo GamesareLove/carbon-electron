@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron ."
   },
-  "author": "Shawn Bowler, Stefan Todorov",
+  "author": "Shawn Bowler, Stefan Todorov, Jake Benavidez,",
   "license": "MIT",
   "devDependencies": {
     "electron": "^3.0.13",
