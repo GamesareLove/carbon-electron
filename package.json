@@ -6,10 +6,10 @@
   "scripts": {
     "start": "electron ."
   },
-  "author": "Shawn Bowler, Stefan Todorov, Jake Benavidez,",
+  "author": "Shawn Bowler, Stefan Todorov",
   "license": "MIT",
   "devDependencies": {
     "electron": "^3.0.13",
-    "jquery": "^3.3.1"
+    "jquery": "^3.4.0"
   }
 }
