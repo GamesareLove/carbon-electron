@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Carbon Electron</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
+    <script src="fa-all.min.js"></script><!-- FontAwesome -->
+    <script src="jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div id="menu" class="menu-wrap" style="display: none;">
+            <nav class="menu-top">
+                <div id="activeUser" class="profile"></div>
+                <div class="icon-list">
+                    <a href="home.html"><i class="far fa-fw fa-star"></i></a>
+                    <a href="home.html"><i class="far fa-fw fa-bell"></i></a>
+                    <a href="home.html"><i class="far fa-fw fa-envelope"></i></a>
+                    <a href="home.html"><i class="far fa-fw fa-comment"></i></a>
+                </div>
+            </nav>
+            <nav class="menu-side">
+                <div id="profileOptions" style="display: none;">
+                    <a href="profilesettings.html"><i class="fas fa-cog fa-fw fa-lg"></i>&nbsp;&nbsp;Profile Settings</a>
+                    <a id="logout" href="#"><i class="fas fa-fw fa-sign-out-alt fa-lg"></i>&nbsp;&nbsp;Sign Out</a>
+                </div>
+                <a href="home.html"><i class="fas fa-fw fa-home fa-lg"></i>&nbsp;&nbsp;Home</a>
+                <a id="topper" class="active" href="index.html"><i class="fa fa-square"></i>&nbsp;&nbsp;Board</a>
+                <a href="#"><i class="fas fa-fw fa-users fa-lg"></i>&nbsp;&nbsp;Manage Members</a>
+                <a href="appsettings.html"><i class="fas fa-fw fa-cogs fa-lg"></i>&nbsp;&nbsp;Settings</a>
+            </nav>
+        </div>
+        <a class="menu-button" id="open-button"><i class="fas fa-fw fa-bars fa-lg"></i></a>
+        <div class="content-wrap">
+            <div class="content">
+                <div class="app-settings">
+                    <h3>Home</h3>
+                    <div class="remindersBox">
+                        <center>
+                            <h1>REMINDERS</h1>
+                        </center>
+                    </div>
+                    <br><br><br><br><br><br><br><br><br><br><br>
+                    <div class="newsfeed">
+                        <center>
+                            <h1>NEWS FEED</h1>
+                        </center>
+                    </div>
+                    <div class="section-instant-message">
+                        <center>
+                            <h1>Instant Messaging</h1>
+                        <center>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /content-wrap -->
+    </div><!-- /container -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>

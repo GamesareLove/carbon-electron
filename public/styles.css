@@ -1,10 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Questrial');
-:root {
+:root 
+{
     --link-color: whitesmoke;
     --link-hover-color: #d8d8d8;
     --menu-background-color: #243342;
     --content-background-color: #2b3e51;
-    --active-color: #27ae60;
+    --active-color: #d8d8d8;
 }
 
 * {
@@ -18,6 +19,49 @@ html, body, .container, .content-wrap {
     width: 100%;
     height: 100%;
 }
+
+
+
+/*hide role-specific div html*/
+    div.Administrator 
+    {
+    display: none;
+    }
+
+
+    .remindersBox 
+    {
+        height: 150px;
+        width: 700px;
+        outline-style: double;
+        outline-color: black;
+        background-color: rgb(122, 202, 255);
+        float: left;
+    }
+
+    /*****News Feed*****/
+    .newsfeed 
+    {
+        height: 300px;
+        width: 700px;
+        outline-style: double;
+        outline-color: black;
+        background-color: rgb(117, 152, 250);
+        float: left;
+    }
+
+    /*****Instant Messaging*****/
+    .section-instant-message
+    {
+        height: 500px;
+        width: 250px;
+        outline-style: double;
+        outline-color: black;
+        background-color: rgb(132, 134, 252);
+        float: right;
+        padding: 10px;
+    }
+
 
 .container {
     background: var(--menu-background-color);

@@ -5,7 +5,12 @@ $.getJSON('../config.json', config => {
 		mainReady();
 });
 
-function mainReady() {
+if (HelpCenter.user.role=="Administrator"){
+	$("div.Administrator").show();
+   }
+
+function mainReady() 
+{
 	const db = firebase.firestore();
 	db.settings({ timestampsInSnapshots: true});
 	firebase.auth().onAuthStateChanged(user => {
@@ -28,7 +33,8 @@ function mainReady() {
 		firebase.auth().signOut();
 	});
 
-	function toggleProfileOptions() {
+	function toggleProfileOptions() 
+	{
 		$('#activeUser svg').toggleClass('fa-caret-down fa-caret-up');
 		$('#profileOptions').slideToggle();
 		$('body').toggleClass('show-profile');
@@ -36,7 +42,8 @@ function mainReady() {
 
 	$('#activeUser').click(toggleProfileOptions);
 
-	function toggleMenu() {
+	function toggleMenu() 
+	{
 		$('#menu').toggle();
 		$('body').toggleClass('show-menu');
 	}
@@ -66,11 +73,13 @@ function mainReady() {
 		$('#pswdchngr').toggle();
 	});
 
-	function toggleProfileSettingsEdit() {
+	function toggleProfileSettingsEdit() 
+	{
 		$('.profile-settings').toggle();
 	}
 
-	function resetProfileEditFields() {
+	function resetProfileEditFields() 
+	{
 		let cU = firebase.auth().currentUser;
 		document.getElementById('poi-usnm').value = cU.displayName;
 		document.getElementById('poi-emil').value = cU.email;
@@ -82,7 +91,8 @@ function mainReady() {
 		}
 	}
 
-	function fillProfile(u) {
+	function fillProfile(u) 
+	{
 		// Text
 		$('.po-ppic').attr('style', "background-image: url("+u.photoURL+");");
 		document.getElementById('po-usnm').innerText = u.displayName;
@@ -95,7 +105,8 @@ function mainReady() {
 		// document.getElementById('poi-ppic').value = u.photoURL;
 	}
 
-	function updateProfileSettings(){
+	function updateProfileSettings()
+	{
 		let e, p, n, u;
 		let currentUser = firebase.auth().currentUser;
 		let cred = firebase.auth.EmailAuthProvider.credential(currentUser.email, document.getElementById('poi-pswd').value);
@@ -119,7 +130,8 @@ function mainReady() {
 		}
 	}
 
-	function oopdateProofile(e, p, n, u, cu){
+	function oopdateProofile(e, p, n, u, cu)
+	{
 		if(e != cu.email && e != undefined){cu.updateEmail(e);}
 		if(p != '' && p != undefined){cu.updatePassword(p)}
 		let ur = u ? u : cu.photoURL;
@@ -131,7 +143,8 @@ function mainReady() {
 		});
 	}
 
-	function getOrgs(u) {
+	function getOrgs(u) 
+	{
 		const groupsArray = [];
 		const orgRef = db.collection('organizations');
 		orgRef.get().then(orgSnap => {
@@ -145,7 +158,8 @@ function mainReady() {
 		});
 	}
 
-	function getGroups(groups){
+	function getGroups(groups)
+	{
 		groups.forEach(e => {
 			if(e != undefined){
 				// console.log(e);
@@ -172,7 +186,8 @@ function mainReady() {
 		})
 	}
 
-	function getMeetings(meetings) {
+	function getMeetings(meetings) 
+	{
 		document.getElementById('meetings').innerHTML = '';
 		document.getElementById('posts').innerHTML = '';
 		meetings.forEach(e => {
@@ -193,7 +208,8 @@ function mainReady() {
 		})
 	}
 
-	function getPosts(posts) {
+	function getPosts(posts) 
+	{
 		document.getElementById('posts').innerHTML = '';
 		posts.forEach(e => {
 			e.get().then(postSnap => {
@@ -213,7 +229,13 @@ function mainReady() {
 		})
 	}
 
-	function showPost(post) {
+	function makePost(post)
+	{
+
+	}
+
+	function showPost(post) 
+	{
 		let postTitle = post.title;
 		let postDate = post.metadata.creationDate;
 		let postBody = post.body;
