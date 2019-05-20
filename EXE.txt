@@ -1,1 +1,7 @@
+First Install  npm install -g electron-packager with CMD
+
+Then use batch file included inside of the folder
+
+
+Dont worry about this
 electron-packager .\ carbon --platform=win32 --arch=x64 --overwrite
