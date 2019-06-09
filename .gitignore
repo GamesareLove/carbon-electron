@@ -63,3 +63,6 @@ typings/
 # Firebase SKD Config
 config.json
 public/test.json
+
+# Builds
+carbon-*
