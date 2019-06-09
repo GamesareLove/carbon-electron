@@ -28,7 +28,8 @@
                     <a href="profilesettings.html"><i class="fas fa-cog fa-fw fa-lg"></i>&nbsp;&nbsp;Profile Settings</a>
                     <a id="logout" href="#"><i class="fas fa-fw fa-sign-out-alt fa-lg"></i>&nbsp;&nbsp;Sign Out</a>
                 </div>
-                <a id="topper" class="active" href="#"><i class="fas fa-fw fa-home fa-lg"></i>&nbsp;&nbsp;Home</a>
+                <a id="topper" class="active" href="index.html"><i class="fa fa-square"></i>&nbsp;&nbsp;Board</a>
+                <a href="home.html"><i class="fas fa-fw fa-home fa-lg"></i>&nbsp;&nbsp;Home</a>
                 <a href="#"><i class="fas fa-fw fa-users fa-lg"></i>&nbsp;&nbsp;Manage Members</a>
                 <a href="appsettings.html"><i class="fas fa-fw fa-cogs fa-lg"></i>&nbsp;&nbsp;Settings</a>
             </nav>
@@ -37,35 +38,44 @@
         <div class="content-wrap">
             <div class="content">
                 <div class="flexy">
-                    <div id="groups" class="typeList"></div>
-                    <div id="meetings" class="typeList"></div>
-                    <div id="posts" class="typeList"></div>
-                    <div id="group-container" class="display-container" style="display: none;">
-                        <span id="display-title" class="title bump"></span>
-                        <span id="display-date" class="date bump"></span>
-                        <div id="display-tags" class="tags bump"></div>
-                        <div id="display-body" class="postContent bump"></div>
-                        <input type="button" id="group-view-atch" class="attachBtn" value="View Attachments" />
-                        <span id="display-atch" class="attachNum"></span>
-                        <input type="button" id="display-edit" class="btn editBtn" style="display: none;" value="Edit Post" />
+                    <div id="groups" class="typeList">
+                        <span class="typeList-actions">
+                            <a href="#">New Group</a>
+                            <a href="#">Join Group</a>
+                        </span>
                     </div>
-                    <div id="meeting-container" class="display-container" style="display: none;">
-                        <span id="display-title" class="title bump"></span>
-                        <span id="display-date" class="date bump"></span>
-                        <div id="display-tags" class="tags bump"></div>
-                        <div id="display-body" class="postContent bump"></div>
-                        <input type="button" id="display-view-atch" class="attachBtn" value="View Attachments" />
-                        <span id="display-atch" class="attachNum"></span>
-                        <input type="button" id="display-edit" class="btn editBtn" style="display: none;" value="Edit Post" />
+                    <div id="meetings" class="typeList">
                     </div>
-                    <div id="post-container" class="display-container" style="display: none;">
-                        <span id="post-title" class="title bump"></span>
-                        <span id="post-date" class="date bump"></span>
-                        <div id="post-tags" class="tags bump"></div>
-                        <div id="post-body" class="postContent bump"></div>
-                        <input type="button" id="post-view-atch" class="attachBtn" value="View Attachments" />
-                        <span id="post-atch" class="attachNum"></span>
-                        <input type="button" id="post-edit" class="btn editBtn" style="display: none;" value="Edit Post" />
+                    <div id="posts" class="typeList">
+                    </div>
+                    <div class="display-container">
+                        <div id="group-container" style="display: none;">
+                            <span id="display-title" class="title bump"></span>
+                            <span id="display-date" class="date bump"></span>
+                            <div id="display-tags" class="tags bump"></div>
+                            <div id="display-body" class="postContent bump"></div>
+                            <input type="button" id="group-view-atch" class="attachBtn" value="View Attachments" />
+                            <span id="display-atch" class="attachNum"></span>
+                            <input type="button" id="display-edit" class="btn editBtn" style="display: none;" value="Edit Post" />
+                        </div>
+                        <div id="meeting-container" style="display: none;">
+                            <span id="display-title" class="title bump"></span>
+                            <span id="display-date" class="date bump"></span>
+                            <div id="display-tags" class="tags bump"></div>
+                            <div id="display-body" class="postContent bump"></div>
+                            <input type="button" id="display-view-atch" class="attachBtn" value="View Attachments" />
+                            <span id="display-atch" class="attachNum"></span>
+                            <input type="button" id="display-edit" class="btn editBtn" style="display: none;" value="Edit Post" />
+                        </div>
+                        <div id="post-container" style="display: none;">
+                            <span id="post-title" class="title bump"></span>
+                            <span id="post-date" class="date bump"></span>
+                            <div id="post-tags" class="tags bump"></div>
+                            <div id="post-body" class="postContent bump"></div>
+                            <input type="button" id="post-view-atch" class="attachBtn" value="View Attachments" />
+                            <span id="post-atch" class="attachNum"></span>
+                            <input type="button" id="post-edit" class="btn editBtn" style="display: none;" value="Edit Post" />
+                        </div>
                     </div>
                 </div>
             </div>

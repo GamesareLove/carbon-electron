@@ -154,15 +154,13 @@ function mainReady() {
 						let group = document.createElement('div');
 						group.innerText = groupSnap.data().name;
 						group.setAttribute('class', 'group');
-						document.getElementById('groups').appendChild(group);
+						let grEle = document.getElementById('groups');
+						grEle.insertBefore(group, grEle.childNodes[grEle.children.length]);
 						group.addEventListener('click', () => {
 							if(!group.getAttribute('class').includes('active')){
 								let groupElement = document.querySelectorAll('.group');
 								groupElement.forEach(c => {c.classList.remove('active')});
 								group.classList.add('active');
-
-								
-
 								getMeetings(groupSnap.data().meetings);
 							}
 						});
@@ -173,7 +171,7 @@ function mainReady() {
 	}
 
 	function getMeetings(meetings) {
-		document.getElementById('meetings').innerHTML = '';
+		document.getElementById('meetings').innerHTML = '<span class="typeList-actions"><a href="#">New Meeting</a></span>';
 		document.getElementById('posts').innerHTML = '';
 		meetings.forEach(e => {
 			e.get().then(meetingSnap => {
@@ -188,13 +186,14 @@ function mainReady() {
 						getPosts(meetingSnap.data().posts);
 					}
 				});
-				document.getElementById('meetings').appendChild(meeting);
+				let meEle = document.getElementById('meetings');
+				meEle.insertBefore(meeting, meEle.childNodes[meEle.children.length - 1]);
 			})
 		})
 	}
 
 	function getPosts(posts) {
-		document.getElementById('posts').innerHTML = '';
+		document.getElementById('posts').innerHTML = '<span class="typeList-actions"><a href="#">New Post</a></span>';
 		posts.forEach(e => {
 			e.get().then(postSnap => {
 				let post = document.createElement('div');
@@ -208,7 +207,8 @@ function mainReady() {
 						showPost(postSnap.data());
 					}
 				});
-				document.getElementById('posts').appendChild(post);
+				let poEle = document.getElementById('posts');
+				poEle.insertBefore(post, poEle.childNodes[poEle.children.length - 1]);
 			})
 		})
 	}
